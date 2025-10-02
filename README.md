@@ -1,11 +1,5 @@
 # Logikai Láda
 
-## Ládák
-Három ládát választhatsz, rajtuk pedig feliratok:
-- Egy aranyat
-- Egy ezüstöt
-- Egy bronzot
-
 ## Megoldás:
 Ezüst láda
 
@@ -22,6 +16,9 @@ Mindegyiken van egy felirat:
 A szabály: pontosan egy felirat igaz, a másik kettő hamis.
 
 A feladatod, hogy kitaláld, melyik láda rejti a kincset.
+
+<img width="557" height="422" alt="image" src="https://github.com/user-attachments/assets/06c143c4-203c-4488-8de5-73f821f8e54a" />
+
 
 ## Készítők
 Hóman Vajk, Feller Dénes
