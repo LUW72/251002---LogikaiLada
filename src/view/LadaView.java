@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -46,6 +48,25 @@ public class LadaView extends javax.swing.JFrame
     {
         txtFieldMegoldas.setText(s);
     }
+
+    public JButton getBtnValasztott()
+    {
+        return btnValasztott;
+    }
+
+    public JButton getBtnMegoldas()
+    {
+        return btnMegoldas;
+    }
+
+    public void setLblBiztos(String s)
+    {
+        this.lblBiztos.setText(s);
+    }
+    
+    
+    
+    
     
     
 
@@ -71,6 +92,9 @@ public class LadaView extends javax.swing.JFrame
         txtFieldMegoldas = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btnValasztott = new javax.swing.JButton();
+        btnMegoldas = new javax.swing.JButton();
+        lblBiztos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,7 +103,7 @@ public class LadaView extends javax.swing.JFrame
         jLabel2.setText("\"Nem én rejtem a kincset\"");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ládák"));
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         buttonGroup1.add(radioBtnArany);
         radioBtnArany.setText("Arany láda");
@@ -118,6 +142,12 @@ public class LadaView extends javax.swing.JFrame
 
         jLabel5.setText("Vigyázz! Csak az egyikükön álló szöveg igaz!");
 
+        btnValasztott.setText("Választottam");
+
+        btnMegoldas.setText("Kérem a megoldást");
+
+        lblBiztos.setText("    ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,18 +157,29 @@ public class LadaView extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE))
-                .addContainerGap())
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(btnMegoldas, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(lblBiztos, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(jLabel1)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jLabel2)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jLabel3))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(btnValasztott, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(123, 123, 123))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,19 +188,29 @@ public class LadaView extends javax.swing.JFrame
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnValasztott)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblBiztos)
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnMegoldas)
+                        .addGap(18, 18, 18)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -212,6 +263,8 @@ public class LadaView extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMegoldas;
+    private javax.swing.JButton btnValasztott;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -220,6 +273,7 @@ public class LadaView extends javax.swing.JFrame
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblBiztos;
     private javax.swing.JRadioButton radioBtnArany;
     private javax.swing.JRadioButton radioBtnBronz;
     private javax.swing.JRadioButton radioBtnEzust;
