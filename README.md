@@ -8,4 +8,4 @@ Három ládát választhatsz, rajtuk pedig feliratok:
 
 
 ## Készítők
-Vajkyyy, LUW72
+Hóman Vajk, Feller Dénes
