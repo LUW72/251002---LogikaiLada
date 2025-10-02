@@ -32,6 +32,7 @@ public class LadaController
 
     private void valasztGomb() 
     {
+        // Beállítjuk a model adattagjait
         view.getBtnValasztott().addActionListener((ActionEvent e) -> 
         {
             if (view.getRadioBtnArany().isSelected()) 
@@ -46,15 +47,30 @@ public class LadaController
             {
                 model.setValasztott(model.getLadak().get(2));
             }
+            view.setLblBiztos("Biztos vagy benne?");
         });
     }
 
-    private void megoldGomb() {
+    private void megoldGomb() 
+    {
+        // Lekérjük az adattagokat, majd beállítjuk a szöveget
         view.getBtnMegoldas().addActionListener((ActionEvent e) -> 
         {
             LadaModel kincses = model.getKincsesLada();
             
-            view.setTxtFieldMegoldas("A kincs a(z) " + kincses.getSzin() + " ládában van!");
+            view.setLblBiztos("");
+            String kiir = "";
+            if (model.getValasztott() == "ezüst")
+            {
+                kiir = "Nyertél!\n";
+            }
+            else
+            {
+                kiir = "Nem talált!\n";
+            }
+            kiir += "A kincs a(z) " + kincses.getSzin() + " ládában van!";
+            
+            view.setTxtFieldMegoldas(kiir);
             
         });
     }

@@ -28,8 +28,8 @@ public class LadaJatekModel
         this.valasztott = lada;
     }
 
-    public LadaModel getValasztott() {
-        return valasztott;
+    public String getValasztott() {
+        return valasztott.getSzin();
     }
 
     public LadaModel getKincsesLada() 
