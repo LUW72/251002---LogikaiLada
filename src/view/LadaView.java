@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import javax.swing.JButton;
@@ -9,66 +5,43 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Felhasznalo_n
- */
-public class LadaView extends javax.swing.JFrame
-{
+public class LadaView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LadaView
-     */
-    public LadaView()
-    {
+    public LadaView() {
         initComponents();
     }
 
-    public JRadioButton getRadioBtnArany()
-    {
+    public JRadioButton getRadioBtnArany() {
         return radioBtnArany;
     }
 
-    public JRadioButton getRadioBtnBronz()
-    {
+    public JRadioButton getRadioBtnBronz() {
         return radioBtnBronz;
     }
 
-    public JRadioButton getRadioBtnEzust()
-    {
+    public JRadioButton getRadioBtnEzust() {
         return radioBtnEzust;
     }
 
-    public JTextField getTxtFieldMegoldas()
-    {
+    public JTextField getTxtFieldMegoldas() {
         return txtFieldMegoldas;
     }
 
-    public void setTxtFieldMegoldas(String s)
-    {
+    public void setTxtFieldMegoldas(String s) {
         txtFieldMegoldas.setText(s);
     }
 
-    public JButton getBtnValasztott()
-    {
+    public JButton getBtnValasztott() {
         return btnValasztott;
     }
 
-    public JButton getBtnMegoldas()
-    {
+    public JButton getBtnMegoldas() {
         return btnMegoldas;
     }
 
-    public void setLblBiztos(String s)
-    {
+    public void setLblBiztos(String s) {
         this.lblBiztos.setText(s);
     }
-    
-    
-    
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -213,54 +186,6 @@ public class LadaView extends javax.swing.JFrame
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[])
-    {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        }
-        catch (ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(LadaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(LadaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(LadaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(LadaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                new LadaView().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMegoldas;
