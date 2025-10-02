@@ -18,4 +18,16 @@ public class LadaModel {
         return kincs;
     }
 
+    public void setSzin(String szin)
+    {
+        this.szin = szin;
+    }
+
+    public void setKincs(boolean kincs)
+    {
+        this.kincs = kincs;
+    }
+    
+    
+
 }
