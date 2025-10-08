@@ -25,7 +25,8 @@ public class LadaController {
         megoldGomb();
     }
 
-    private void valasztGomb() {
+    public void valasztGomb() 
+    {
         // Beállítjuk a model adattagjait
         view.getBtnValasztott().addActionListener((ActionEvent e)
                 -> {
@@ -40,7 +41,8 @@ public class LadaController {
         });
     }
 
-    private void megoldGomb() {
+    public void megoldGomb() 
+    {
         // Lekérjük az adattagokat, majd beállítjuk a szöveget
         view.getBtnMegoldas().addActionListener((ActionEvent e)
                 -> {
@@ -48,7 +50,8 @@ public class LadaController {
 
             view.setLblBiztos("");
             String kiir = "";
-            if (model.getValasztott() == "ezüst") {
+            if ("ezüst".equals(model.getValasztott()))
+            {
                 kiir = "Nyertél!\n";
             } else {
                 kiir = "Nem talált!\n";
