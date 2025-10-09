@@ -14,19 +14,18 @@ public class LadaValasztasTest {
 //        pontEgyLada3Bol();
 //        ladaMegfeleloVisszajelzesTest();
 //        visszajelzesSzovegTest();
-
     }
-   // Modell tesztek    
+   // Modell tesztek---Vajk
 
     public static void letezoLadaE() {
         LadaJatekModel model = new LadaJatekModel();
 
-        boolean nemTortentHiba = false;
+        boolean nemTortentHiba = true;
 
         try {
             model.getLadak().get(2); // csak 0,1,2 létezik
         } catch (IndexOutOfBoundsException ex) {
-            nemTortentHiba = true;
+            nemTortentHiba = false;
         }
 
         assert nemTortentHiba : "Nem dobott kivételt, pedig nem létező ládára hivatkoztunk!";
@@ -38,7 +37,7 @@ public class LadaValasztasTest {
         LadaJatekModel model = new LadaJatekModel();
 
         int ladaDb = model.getLadak().size();
-        assert ladaDb == 3 : "A ládák száma hibás! (" + ladaDb + " darab van)";
+        assert ladaDb == 3 : "A ládák száma hibás! (Nem " + ladaDb + " darab van)";
 
         int kincsesDb = 0;
         for (LadaModel lada : model.getLadak()) {
@@ -47,13 +46,13 @@ public class LadaValasztasTest {
                 assert lada.getSzin().equals("ezüst") : "Nem az ezüst ládában van a kincs!";
             }
         }
-        assert kincsesDb == 1 : "Nem pontosan egy ládában van a kincs! (" + kincsesDb + " darabban van)";
+        assert kincsesDb == 1: "Nem pontosan egy ládában van a kincs! (" + kincsesDb + " darabban van)";
 
         System.out.println("pontEgyLada3Bol() Teszt lefutott: Hibás láda szám esetén, vagy ha a kincs rossz helyen van, kivétel keletkezik.");
                   
     }
 
-    // Vezérlő tesztek
+    // Vezérlő tesztek--Dénes
     
     // a kiválasztott ládára megfelelő visszajelzést kapunk (benne a kincs, nincs benne)
     public static void ladaMegfeleloVisszajelzesTest() 
@@ -104,9 +103,5 @@ public class LadaValasztasTest {
         System.out.println("A visszajelzesSzovegTest() hiba nélkül lefutott");
     }
 
-    
-    
-
-
-    
+          
 }
