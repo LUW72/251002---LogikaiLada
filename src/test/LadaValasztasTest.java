@@ -10,9 +10,10 @@ public class LadaValasztasTest {
 
     public static void main(String[] args) 
     {
-        //letezoLadaE();
-        pontEgyLada3Bol();
-        ladaMegfeleloVisszajelzesTest();
+        letezoLadaE();
+//        pontEgyLada3Bol();
+//        ladaMegfeleloVisszajelzesTest();
+//        visszajelzesSzovegTest();
 
     }
    // Modell tesztek    
@@ -23,12 +24,12 @@ public class LadaValasztasTest {
         boolean hibaTortent = false;
 
         try {
-            model.setValasztott(model.getLadak().get(3)); // csak 0,1,2 létezik
+            model.getLadak().get(2); // csak 0,1,2 létezik
         } catch (IndexOutOfBoundsException ex) {
-            hibaTortent = true;
+            nemTortentHiba = true;
         }
 
-        assert hibaTortent : "Nem dobott kivételt, pedig nem létező ládára hivatkoztunk!";
+        assert nemTortentHiba : "Nem dobott kivételt, pedig nem létező ládára hivatkoztunk!";
 
         System.out.println("letezoLadaE() Teszt lefutott: nem létező ládára hivatkozás esetén kivétel keletkezik.");
     }
@@ -79,16 +80,20 @@ public class LadaValasztasTest {
         LadaController controller = new LadaController(model, view);
         controller.feladat();
 
+        // Választott 1 ->
         model.setValasztott(model.getLadak().get(1));
+        // Ezüstben a kincs
+        LadaModel kincses = model.getKincsesLada();
 
+        // "A kincs a(z) " + kincses.getSzin() + " ládában van!";
         String eredmeny = "";
         if (model.getValasztott().equals("ezüst")) 
         {
-            eredmeny = "Nyertél!\nA kincs a(z) ezüst ládában van!";
+            eredmeny = "Nyertél!\nA kincs a(z) %s ládában van!".formatted(kincses.getSzin());
         } 
         else 
         {
-            eredmeny = "Nem talált!\nA kincs a(z) ezüst ládában van!";
+            eredmeny = "Nem talált!\nA kincs a(z) %s ládában van!".formatted(kincses.getSzin());
         }
 
         assert eredmeny.contains("Nyertél!") : "HIBA: Hibás szöveg";
