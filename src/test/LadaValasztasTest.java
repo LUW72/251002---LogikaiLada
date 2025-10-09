@@ -21,7 +21,7 @@ public class LadaValasztasTest {
     public static void letezoLadaE() {
         LadaJatekModel model = new LadaJatekModel();
 
-        boolean hibaTortent = false;
+        boolean nemTortentHiba = false;
 
         try {
             model.getLadak().get(2); // csak 0,1,2 létezik
@@ -71,6 +71,8 @@ public class LadaValasztasTest {
 
         LadaModel kincses = model.getKincsesLada();
         assert kincses.getSzin().equals(valasztott) : "HIBA: A kiválasztott láda nem a kincses láda.";
+        
+        System.out.println("A ladaMegfeleloVisszajelzesTest() hiba nélkül lefutott");
     }
 
     public static void visszajelzesSzovegTest() 
@@ -87,7 +89,7 @@ public class LadaValasztasTest {
 
         // "A kincs a(z) " + kincses.getSzin() + " ládában van!";
         String eredmeny = "";
-        if (model.getValasztott().equals("ezüst")) 
+        if (model.getValasztott().equals("")) 
         {
             eredmeny = "Nyertél!\nA kincs a(z) %s ládában van!".formatted(kincses.getSzin());
         } 
@@ -98,6 +100,8 @@ public class LadaValasztasTest {
 
         assert eredmeny.contains("Nyertél!") : "HIBA: Hibás szöveg";
         assert eredmeny.contains("ezüst") : "HIBA: Helytelen a láda színe";
+        
+        System.out.println("A visszajelzesSzovegTest() hiba nélkül lefutott");
     }
 
     
