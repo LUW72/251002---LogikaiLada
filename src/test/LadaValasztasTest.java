@@ -17,7 +17,7 @@ public class LadaValasztasTest {
 //        pontEgyLada3Bol();
 //        ladaMegfeleloVisszajelzesTest();
 //        visszajelzesSzovegTest();
-        szovegTeszt();
+
     }
     // Modell tesztek---Vajk
 
@@ -53,6 +53,7 @@ public class LadaValasztasTest {
         } catch (Exception e) {
             System.err.println("⚠️ Hiba történt a teszt futása közben: " + e.getMessage());
         }
+
     }
 
     public static void letezoLadaE() {
@@ -133,6 +134,39 @@ public class LadaValasztasTest {
         assert eredmeny.contains("ezüst") : "HIBA: Helytelen a láda színe";
 
         System.out.println("A visszajelzesSzovegTest() hiba nélkül lefutott");
+    }
+
+    // ládára való hivatkozásnál mi történik, ha szöveget adunk meg a szám helyett (v fordítva)
+    public static void szovegInputSzamHelyett()
+    {
+        LadaJatekModel model = new LadaJatekModel();
+
+        // 1) Szöveg, szám helyett
+        try 
+        {
+            model.getLadak().get(Integer.parseInt("ezüst"));
+            
+            assert false : "HIBA: Elfogadta a szöveget, mikor csak a számot kellett volna!";
+        } 
+        catch (NumberFormatException e) 
+        {
+            System.out.println("A vmodel.getLadak().get(Integer.parseInt(\"ezüst\")) sikeresen kivételt dobott!\n" + e.getMessage());
+        }
+
+        // 2) Számként megadott szöveg
+        try 
+        {
+            LadaModel lada = model.getLadak().get(Integer.parseInt("1"));
+            assert lada.getSzin().equals("ezüst") || lada.getSzin().equals("arany") || lada.getSzin().equals("bronz") : "HIBA: A lekért láda színe érvénytelen.";
+        } 
+        catch (NumberFormatException e) 
+        {
+            assert false : "HIBA: Nem várt kivétel dobása történt! " + e;
+        }
+
+        System.out.println("A ladaHivatkozasTipusHibaTest() hiba nélkül lefutott");
+
+        
     }
 
 }
