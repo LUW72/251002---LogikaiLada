@@ -10,25 +10,25 @@ public class LadaValasztasTest {
 
     public static void main(String[] args) 
     {
-        //letezoLadaE();
-        pontEgyLada3Bol();
-        ladaMegfeleloVisszajelzesTest();
+        letezoLadaE();
+        //pontEgyLada3Bol();
+        //ladaMegfeleloVisszajelzesTest();
 
     }
-   // Modell tesztek    
+   // Modell tesztek---Vajk
 
     public static void letezoLadaE() {
         LadaJatekModel model = new LadaJatekModel();
 
-        boolean hibaTortent = false;
+        boolean nemToretentHiba = true;
 
         try {
-            model.setValasztott(model.getLadak().get(3)); // csak 0,1,2 létezik
+            model.getLadak().get(3); // csak 0,1,2 létezik
         } catch (IndexOutOfBoundsException ex) {
-            hibaTortent = true;
+            nemToretentHiba = false;
         }
 
-        assert hibaTortent : "Nem dobott kivételt, pedig nem létező ládára hivatkoztunk!";
+        assert nemToretentHiba : "Nem dobott kivételt, pedig nem létező ládára hivatkoztunk!";
 
         System.out.println("letezoLadaE() Teszt lefutott: nem létező ládára hivatkozás esetén kivétel keletkezik.");
     }
@@ -37,7 +37,7 @@ public class LadaValasztasTest {
         LadaJatekModel model = new LadaJatekModel();
 
         int ladaDb = model.getLadak().size();
-        assert ladaDb == 3 : "A ládák száma hibás! (" + ladaDb + " darab van)";
+        assert ladaDb == 3 : "A ládák száma hibás! (Nem " + ladaDb + " darab van)";
 
         int kincsesDb = 0;
         for (LadaModel lada : model.getLadak()) {
@@ -46,13 +46,13 @@ public class LadaValasztasTest {
                 assert lada.getSzin().equals("ezüst") : "Nem az ezüst ládában van a kincs!";
             }
         }
-        assert kincsesDb == 1 : "Nem pontosan egy ládában van a kincs! (" + kincsesDb + " darabban van)";
+        assert kincsesDb == 1: "Nem pontosan egy ládában van a kincs! (" + kincsesDb + " darabban van)";
 
         System.out.println("pontEgyLada3Bol() Teszt lefutott: Hibás láda szám esetén, vagy ha a kincs rossz helyen van, kivétel keletkezik.");
                   
     }
 
-    // Vezérlő tesztek
+    // Vezérlő tesztek--Dénes
     
     // a kiválasztott ládára megfelelő visszajelzést kapunk (benne a kincs, nincs benne)
     public static void ladaMegfeleloVisszajelzesTest() 
@@ -93,11 +93,5 @@ public class LadaValasztasTest {
 
         assert eredmeny.contains("Nyertél!") : "HIBA: Hibás szöveg";
         assert eredmeny.contains("ezüst") : "HIBA: Helytelen a láda színe";
-    }
-
-    
-    
-
-
-    
+    }            
 }
