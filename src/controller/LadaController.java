@@ -7,8 +7,6 @@ import model.LadaJatekModel;
 import model.LadaModel;
 import view.LadaView;
 
-
-
 public class LadaController {
 
     private LadaJatekModel model;
@@ -26,6 +24,7 @@ public class LadaController {
         valasztGomb();
         megoldGomb();
     }
+
 
     public void valasztGomb() 
     {

@@ -13,50 +13,19 @@ public class LadaValasztasTest {
     private LadaView view;
 
     public static void main(String[] args) {
-        //letezoLadaE();
-//        pontEgyLada3Bol();
-//        ladaMegfeleloVisszajelzesTest();
-//        visszajelzesSzovegTest();
-
+        //Vajk testjei
+        //tesztLetezoLadaE();
+        //testPontEgyLada3Bol();
+        
+        //Dénes testjei
+        //testLadaMegfeleloVisszajelzes();
+        //testVisszajelzesSzoveg();
+        //testSzovegInputSzamHelyett();        
+        
     }
     // Modell tesztek---Vajk
 
-    private static void szovegTeszt() {
-        try {
-            LadaJatekModel jatek = new LadaJatekModel();
-            LadaView view = new LadaView();
-
-            // Feliratok összegyűjtése
-            Map<String, String> feliratok = new HashMap<>();
-            feliratok.put("arany", "\"Én rejtem a kincset\"");
-            feliratok.put("ezüst", "\"Nem én rejtem a kincset\"");
-            feliratok.put("bronz", "\"Az Arany láda hazudik\"");
-
-            // 1. Feltétel: minden ládának van felirata
-            for (LadaModel lada : jatek.getLadak()) {
-                assert feliratok.containsKey(lada.getSzin()) :
-                        "Hiányzik felirat a(z) " + lada.getSzin() + " ládáról!";
-            }
-
-            // 2. Feltétel: szövegrészek helyesek
-            assert feliratok.get("arany").toLowerCase().contains("én rejtem") :
-                    "Arany láda felirata hibás!";
-            assert feliratok.get("ezüst").toLowerCase().contains("nem én rejtem") :
-                    "Ezüst láda felirata hibás!";
-            assert feliratok.get("bronz").toLowerCase().contains("arany hazudik") :
-                    "Bronz láda felirata hibás!";
-
-            System.out.println("✅ Minden láda felirata megfelel a feltételeknek!");
-
-        } catch (AssertionError hiba) {
-            System.err.println("❌ Tesztelési hiba: " + hiba.getMessage());
-        } catch (Exception e) {
-            System.err.println("⚠️ Hiba történt a teszt futása közben: " + e.getMessage());
-        }
-
-    }
-
-    public static void letezoLadaE() {
+    public static void tesztLetezoLadaE() {
         LadaJatekModel model = new LadaJatekModel();
 
         boolean nemTortentHiba = true;
@@ -72,7 +41,7 @@ public class LadaValasztasTest {
         System.out.println("letezoLadaE() Teszt lefutott: nem létező ládára hivatkozás esetén kivétel keletkezik.");
     }
 
-    public static void pontEgyLada3Bol() {
+    public static void testPontEgyLada3Bol() {
         LadaJatekModel model = new LadaJatekModel();
 
         int ladaDb = model.getLadak().size();
@@ -93,7 +62,7 @@ public class LadaValasztasTest {
 
     // Vezérlő tesztek--Dénes
     // a kiválasztott ládára megfelelő visszajelzést kapunk (benne a kincs, nincs benne)
-    public static void ladaMegfeleloVisszajelzesTest() {
+    public static void testLadaMegfeleloVisszajelzes() {
         LadaJatekModel model = new LadaJatekModel();
         LadaView view = new LadaView();
         LadaController controller = new LadaController(model, view);
@@ -111,7 +80,7 @@ public class LadaValasztasTest {
         System.out.println("A ladaMegfeleloVisszajelzesTest() hiba nélkül lefutott");
     }
 
-    public static void visszajelzesSzovegTest() {
+    public static void testVisszajelzesSzoveg() {
         LadaJatekModel model = new LadaJatekModel();
         LadaView view = new LadaView();
         LadaController controller = new LadaController(model, view);
@@ -137,36 +106,28 @@ public class LadaValasztasTest {
     }
 
     // ládára való hivatkozásnál mi történik, ha szöveget adunk meg a szám helyett (v fordítva)
-    public static void szovegInputSzamHelyett()
-    {
+    public static void testSzovegInputSzamHelyett() {
         LadaJatekModel model = new LadaJatekModel();
 
         // 1) Szöveg, szám helyett
-        try 
-        {
+        try {
             model.getLadak().get(Integer.parseInt("ezüst"));
-            
+
             assert false : "HIBA: Elfogadta a szöveget, mikor csak a számot kellett volna!";
-        } 
-        catch (NumberFormatException e) 
-        {
+        } catch (NumberFormatException e) {
             System.out.println("A vmodel.getLadak().get(Integer.parseInt(\"ezüst\")) sikeresen kivételt dobott!\n" + e.getMessage());
         }
 
         // 2) Számként megadott szöveg
-        try 
-        {
+        try {
             LadaModel lada = model.getLadak().get(Integer.parseInt("1"));
             assert lada.getSzin().equals("ezüst") || lada.getSzin().equals("arany") || lada.getSzin().equals("bronz") : "HIBA: A lekért láda színe érvénytelen.";
-        } 
-        catch (NumberFormatException e) 
-        {
+        } catch (NumberFormatException e) {
             assert false : "HIBA: Nem várt kivétel dobása történt! " + e;
         }
 
         System.out.println("A ladaHivatkozasTipusHibaTest() hiba nélkül lefutott");
 
-        
     }
 
 }
